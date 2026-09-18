@@ -1,0 +1,922 @@
+% ============================================================================
+% references.bib — Differentiable & Hybrid Modeling for Hydrologic Systems
+%
+% Every entry below was checked against a reference list in one of the four
+% source PDFs under refs/, or (where noted) against the publisher's own record.
+% Fields that could not be verified were OMITTED rather than guessed — several
+% entries therefore lack page ranges or issue numbers on purpose.
+%
+% Verification key, given in the note field of uncertain entries:
+%   [v:shen]      — verified against the bibliography of refs/shen_diff.pdf
+%   [v:rack]      — verified against refs/rack_ude.pdf
+%   [v:lamichhane]— verified against the reference list of refs/lamichhane_swe.pdf
+%   [v:kalauni]   — verified against the reference list of refs/kalauni_lad.pdf
+%   [v:publisher] — verified against the publisher landing page
+% ============================================================================
+
+
+% ---------------------------------------------------------------------------
+% THE FOUR CORE SOURCES
+% ---------------------------------------------------------------------------
+
+@article{shen2023differentiable,
+  author  = {Shen, Chaopeng and Appling, Alison P. and Gentine, Pierre and
+             Bandai, Toshiyuki and Gupta, Hoshin and Tartakovsky, Alexandre and
+             Baity-Jesi, Marco and Fenicia, Fabrizio and Kifer, Daniel and
+             Li, Li and Liu, Xiaofeng and Ren, Wei and Zheng, Yi and
+             Harman, Ciaran J. and Clark, Martyn and Farthing, Matthew and
+             Feng, Dapeng and Kumar, Praveen and Aboelyazeed, Doaa and
+             Rahmani, Farshid and Song, Yalan and Beck, Hylke E. and
+             Bindas, Tadd and Dwivedi, Dipankar and Fang, Kuai and
+             H{\"o}ge, Marvin and Rackauckas, Chris and Mohanty, Binayak and
+             Roy, Tirthankar and Xu, Chonggang and Lawson, Kathryn},
+  title   = {Differentiable modelling to unify machine learning and physical
+             models for geosciences},
+  journal = {Nature Reviews Earth \& Environment},
+  year    = {2023},
+  doi     = {10.1038/s43017-023-00450-9},
+  note    = {[v:shen] Author-supplied citation given on p.~1 of the arXiv
+             version in refs/. That copy has the additional method classes,
+             the challenges section and the concluding remarks redacted;
+             volume and page numbers are not stated in it and are omitted here.}
+}
+
+@article{rackauckas2021universal,
+  author  = {Rackauckas, Christopher and Ma, Yingbo and Martensen, Julius and
+             Warner, Collin and Zubov, Kirill and Supekar, Rohit and
+             Skinner, Dominic and Ramadhan, Ali and Edelman, Alan},
+  title   = {Universal Differential Equations for Scientific Machine Learning},
+  journal = {arXiv preprint arXiv:2001.04385},
+  year    = {2021},
+  doi     = {10.48550/arXiv.2001.04385},
+  note    = {[v:rack][v:kalauni] v4, 2 November 2021. Never published in a
+             journal; cite the preprint.}
+}
+
+@article{lamichhane2025dynamic,
+  author  = {Lamichhane, Aamir R. and Bennett, Andrew},
+  title   = {Dynamic Parameterization of {SNOW-17} using {LSTM} for Improved
+             Snow Water Equivalent Prediction},
+  journal = {ESS Open Archive},
+  year    = {2025},
+  doi     = {10.22541/essoar.176643159.92205532},
+  note    = {[v:kalauni] PREPRINT. The copy in refs/ is headed ``manuscript
+             submitted to Water Resources Research''. Cited by Kalauni et al.
+             as an Authorea / ESS Open Archive preprint. Do NOT cite as a
+             published WRR article.}
+}
+
+@unpublished{kalauni2025hybrid,
+  author = {Kalauni, N. and Gupta, Hoshin V. and Bennett, Andrew},
+  title  = {Hybrid models can serve as diagnostic tools to probe land surface
+            parameterizations},
+  year   = {2026},
+  note   = {PREPRINT / in review. The copy in refs/ is headed ``manuscript
+            submitted to Water Resources Research'' and carries no DOI, volume
+            or page numbers; the PDF was typeset 2026-09-07. Code:
+            https://github.com/BennettHydroLab/lad_model . Processed
+            FLUXNET2015 data: https://doi.org/10.5281/zenodo.22036640 .
+            Confirm the final venue and year before publishing workshop
+            material that cites it.}
+}
+
+
+% ---------------------------------------------------------------------------
+% FOUNDATIONS: NEURAL ODEs, PINNs, AUTODIFF, UNIVERSAL APPROXIMATION
+% ---------------------------------------------------------------------------
+
+@inproceedings{chen2018neural,
+  author    = {Chen, Ricky T. Q. and Rubanova, Yulia and Bettencourt, Jesse and
+               Duvenaud, David},
+  title     = {Neural Ordinary Differential Equations},
+  booktitle = {Advances in Neural Information Processing Systems 31
+               (NeurIPS 2018)},
+  pages     = {6572--6583},
+  year      = {2018},
+  publisher = {Curran Associates, Inc.},
+  note      = {[v:shen][v:kalauni] The torchdiffeq paper. Source of the
+               continuous adjoint with O(1) memory.}
+}
+
+@article{raissi2019physics,
+  author  = {Raissi, Maziar and Perdikaris, Paris and Karniadakis, George Em},
+  title   = {Physics-informed neural networks: A deep learning framework for
+             solving forward and inverse problems involving nonlinear partial
+             differential equations},
+  journal = {Journal of Computational Physics},
+  volume  = {378},
+  pages   = {686--707},
+  year    = {2019},
+  note    = {[v:shen] The PINN paper.}
+}
+
+@article{karniadakis2021physics,
+  author  = {Karniadakis, George Em and Kevrekidis, Ioannis G. and Lu, Lu and
+             Perdikaris, Paris and Wang, Sifan and Yang, Liu},
+  title   = {Physics-informed machine learning},
+  journal = {Nature Reviews Physics},
+  volume  = {3},
+  pages   = {422--440},
+  year    = {2021},
+  note    = {[v:shen] Cited in Shen as ``Karniadakis, G. E. et al.''; the full
+             author list here is from the published article. Good review of the
+             wider PIML landscape.}
+}
+
+@article{hornik1991approximation,
+  author  = {Hornik, Kurt},
+  title   = {Approximation capabilities of multilayer feedforward networks},
+  journal = {Neural Networks},
+  volume  = {4},
+  number  = {2},
+  pages   = {251--257},
+  year    = {1991},
+  note    = {[v:kalauni] The ``universal'' in universal differential equation.}
+}
+
+@article{hochreiter1997long,
+  author  = {Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
+  title   = {Long Short-Term Memory},
+  journal = {Neural Computation},
+  volume  = {9},
+  number  = {8},
+  pages   = {1735--1780},
+  year    = {1997},
+  note    = {[v:shen][v:lamichhane]}
+}
+
+@article{baydin2018automatic,
+  author  = {Baydin, At{\i}l{\i}m G{\"u}ne{\c{s}} and Pearlmutter, Barak A. and
+             Radul, Alexey Andreyevich and Siskind, Jeffrey Mark},
+  title   = {Automatic differentiation in machine learning: A survey},
+  journal = {Journal of Machine Learning Research},
+  volume  = {18},
+  pages   = {1--43},
+  year    = {2018},
+  note    = {[v:shen] The standard AD reference: forward vs reverse mode.}
+}
+
+@inproceedings{paszke2017automatic,
+  author    = {Paszke, Adam and Gross, Sam and Chintala, Soumith and
+               Chanan, Gregory and Yang, Edward and DeVito, Zachary and
+               Lin, Zeming and Desmaison, Alban and Antiga, Luca and
+               Lerer, Adam},
+  title     = {Automatic differentiation in {PyTorch}},
+  booktitle = {NIPS 2017 Autodiff Workshop},
+  year      = {2017},
+  note      = {[v:shen] Shen cites this as ``Paszke, A. et al.'', 31st NeurIPS.}
+}
+
+@book{griewank2008evaluating,
+  author    = {Griewank, Andreas and Walther, Andrea},
+  title     = {Evaluating Derivatives: Principles and Techniques of Algorithmic
+               Differentiation},
+  publisher = {SIAM},
+  year      = {2008},
+  edition   = {2},
+  note      = {[v:kalauni] Source for the implicit function theorem trick that
+               lets you differentiate through an implicit solver without
+               backpropagating through its Newton iterations.}
+}
+
+@misc{innes2019differentiable,
+  author = {Innes, Mike and Edelman, Alan and Fischer, Keno and
+            Rackauckas, Chris and Saba, Elliot and Shah, Viral B. and
+            Tebbutt, Will},
+  title  = {A Differentiable Programming System to Bridge Machine Learning and
+            Scientific Computing},
+  year   = {2019},
+  eprint = {1907.07587},
+  archivePrefix = {arXiv},
+  note   = {[v:shen] Shen cites as ``Innes, M. et al.''}
+}
+
+@misc{kidger2022neural,
+  author = {Kidger, Patrick},
+  title  = {On Neural Differential Equations},
+  year   = {2022},
+  eprint = {2202.02435},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2202.02435},
+  note   = {[v:kalauni] Kidger's doctoral thesis, and the reference text for
+             neural ODE/CDE/SDE practice. Also the origin of Diffrax.}
+}
+
+@article{kim2021stiff,
+  author  = {Kim, Suyong and Ji, Weiqi and Deng, Sili and Ma, Yingbo and
+             Rackauckas, Christopher},
+  title   = {Stiff neural ordinary differential equations},
+  journal = {Chaos: An Interdisciplinary Journal of Nonlinear Science},
+  volume  = {31},
+  number  = {9},
+  pages   = {093122},
+  year    = {2021},
+  note    = {[v:kalauni] Kalauni cites the author list as ``Kim, S., Ji, W.,
+             Deng, S., \& Rackauckas, C.''; Ma is included on the published
+             article. Why stiffness breaks naive neural ODE training.}
+}
+
+
+% ---------------------------------------------------------------------------
+% DIFFERENTIABLE / HYBRID HYDROLOGY
+% ---------------------------------------------------------------------------
+
+@article{tsai2021calibration,
+  author  = {Tsai, Wen-Ping and Feng, Dapeng and Pan, Ming and Beck, Hylke and
+             Lawson, Kathryn and Yang, Yuan and Liu, Jiangtao and Shen, Chaopeng},
+  title   = {From calibration to parameter learning: Harnessing the scaling
+             effects of big data in geoscientific modeling},
+  journal = {Nature Communications},
+  volume  = {12},
+  pages   = {5988},
+  year    = {2021},
+  note    = {[v:shen] Shen cites as ``Tsai, W.-P. et al.''; full author list
+             from the published article. The differentiable parameter learning
+             (dPL) paper: NN maps attributes to VIC parameters, 100-CPU-cluster
+             days collapse to one GPU-hour.}
+}
+
+@article{feng2022differentiable,
+  author  = {Feng, Dapeng and Liu, Jiangtao and Lawson, Kathryn and Shen, Chaopeng},
+  title   = {Differentiable, learnable, regionalized process-based models with
+             multiphysical outputs can approach state-of-the-art hydrologic
+             prediction accuracy},
+  journal = {Water Resources Research},
+  volume  = {58},
+  number  = {10},
+  pages   = {e2022WR032404},
+  year    = {2022},
+  note    = {[v:shen][v:lamichhane] The delta-HBV paper. Median NSE 0.732 vs
+             LSTM 0.748 on CAMELS.}
+}
+
+@article{feng2023suitability,
+  author  = {Feng, Dapeng and Beck, Hylke and Lawson, Kathryn and Shen, Chaopeng},
+  title   = {The suitability of differentiable, physics-informed machine
+             learning hydrologic models for ungauged regions and climate change
+             impact assessment},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {27},
+  number  = {12},
+  pages   = {2357--2373},
+  year    = {2023},
+  note    = {[v:lamichhane] Shen's copy cites the earlier HESSD preprint of
+             this work under a slightly different title; the published version
+             recorded here is the one to cite.}
+}
+
+@article{hoge2022improving,
+  author  = {H{\"o}ge, Marvin and Scheidegger, Andreas and Baity-Jesi, Marco and
+             Albert, Carlo and Fenicia, Fabrizio},
+  title   = {Improving hydrologic models for predictions and process
+             understanding using neural {ODEs}},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {26},
+  pages   = {5085--5102},
+  year    = {2022},
+  doi     = {10.5194/hess-26-5085-2022},
+  note    = {[v:publisher] Not in the reference list of any of the four PDFs
+             (H{\"o}ge is a Shen co-author); verified against the HESS landing
+             page. The cleanest neural-ODE-inside-a-conceptual-bucket-model
+             paper in hydrology.}
+}
+
+@article{acuna2024bucket,
+  author  = {Acu{\~n}a Espinoza, Eduardo and Loritz, Ralf and
+             {\'A}lvarez Chaves, Manuel and B{\"a}uerle, Nicole and Ehret, Uwe},
+  title   = {To bucket or not to bucket? Analyzing the performance and
+             interpretability of hybrid hydrological models with dynamic
+             parameterization},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {28},
+  number  = {12},
+  pages   = {2705--2719},
+  year    = {2024},
+  note    = {[v:lamichhane] One of the two direct inspirations Lamichhane names
+             for the dynamic-parameterization design.}
+}
+
+@article{bennett2021deep,
+  author  = {Bennett, Andrew and Nijssen, Bart},
+  title   = {Deep learned process parameterizations provide better
+             representations of turbulent heat fluxes in hydrologic models},
+  journal = {Water Resources Research},
+  volume  = {57},
+  number  = {5},
+  pages   = {e2020WR029328},
+  year    = {2021},
+  doi     = {10.1029/2020WR029328},
+  note    = {[v:shen][v:kalauni] The presenter's earlier work: NN flux scheme
+             inside SUMMA. Shen cites it as an example of an OFFLINE-trained
+             network inside a physical model, i.e. explicitly outside the
+             fully-differentiable paradigm — a useful contrast to draw.}
+}
+
+@article{jiang2020improving,
+  author  = {Jiang, Shijie and Zheng, Yi and Solomatine, Dimitri},
+  title   = {Improving {AI} system awareness of geoscience knowledge: Symbiotic
+             integration of physical approaches and deep learning},
+  journal = {Geophysical Research Letters},
+  volume  = {47},
+  pages   = {e2020GL088229},
+  year    = {2020},
+  note    = {[v:shen] EXP-HYDRO encoded as a recurrent architecture with NN
+             parameterization; the citation for ``streamflow can constrain a
+             model to better simulate snow water equivalent''.}
+}
+
+@article{jiang2025jaxcanveg,
+  author  = {Jiang, Peishi and Kidger, Patrick and Bandai, Toshiyuki and
+             Baldocchi, Dennis and Liu, Heping and Xiao, Yifan and Chen, Xingyuan},
+  title   = {{JAX-CanVeg}: A Differentiable Land Surface Model},
+  journal = {Water Resources Research},
+  volume  = {61},
+  number  = {3},
+  pages   = {e2024WR038116},
+  year    = {2025},
+  doi     = {10.1029/2024WR038116},
+  note    = {[v:kalauni] Kalauni's reference list elides middle authors with an
+             ellipsis; the names given here are those it lists explicitly.}
+}
+
+@article{kraft2022towards,
+  author  = {Kraft, Basil and Jung, Martin and K{\"o}rner, Marco and
+             Koirala, Sujan and Reichstein, Markus},
+  title   = {Towards hybrid modeling of the global hydrological cycle},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {26},
+  pages   = {1579--1614},
+  year    = {2022},
+  note    = {[v:shen]}
+}
+
+@article{koppa2022deep,
+  author  = {Koppa, Akash and Rains, Dominik and Hulsman, Petra and
+             Poyatos, Rafael and Miralles, Diego G.},
+  title   = {A deep learning-based hybrid model of global terrestrial
+             evaporation},
+  journal = {Nature Communications},
+  volume  = {13},
+  pages   = {1912},
+  year    = {2022},
+  note    = {[v:shen][v:kalauni]}
+}
+
+@article{elghawi2023hybrid,
+  author  = {ElGhawi, Reda and Kraft, Basil and Reimers, Christian and
+             Reichstein, Markus and K{\"o}rner, Marco and Gentine, Pierre and
+             Winkler, Alexander J.},
+  title   = {Hybrid modeling of evapotranspiration: inferring stomatal and
+             aerodynamic resistances using combined physics-based and machine
+             learning},
+  journal = {Environmental Research Letters},
+  volume  = {18},
+  number  = {3},
+  pages   = {034039},
+  year    = {2023},
+  doi     = {10.1088/1748-9326/acbbe0},
+  note    = {[v:kalauni] The closest prior work to Kalauni's Resistance NN.}
+}
+
+@article{krapu2022differentiable,
+  author  = {Krapu, Christopher and Borsuk, Michael},
+  title   = {A differentiable hydrology approach for modeling with time-varying
+             parameters},
+  journal = {Water Resources Research},
+  volume  = {58},
+  pages   = {e2021WR031377},
+  year    = {2022},
+  note    = {[v:shen]}
+}
+
+@article{tartakovsky2020physics,
+  author  = {Tartakovsky, Alexandre M. and Marrero, Carlos Ortiz and
+             Perdikaris, Paris and Tartakovsky, Guzel D. and
+             Barajas-Solano, David},
+  title   = {Physics-informed deep neural networks for learning parameters and
+             constitutive relationships in subsurface flow problems},
+  journal = {Water Resources Research},
+  volume  = {56},
+  pages   = {e2019WR026731},
+  year    = {2020},
+  note    = {[v:shen] Shen's worked PINN example: learn an unknown unsaturated
+             conductivity function from sparse pressure-head measurements.}
+}
+
+
+% ---------------------------------------------------------------------------
+% DEEP LEARNING IN HYDROLOGY (the LSTM baseline literature)
+% ---------------------------------------------------------------------------
+
+@article{kratzert2018rainfall,
+  author  = {Kratzert, Frederik and Klotz, Daniel and Brenner, Claire and
+             Schulz, Karsten and Herrnegger, Mathew},
+  title   = {Rainfall--runoff modelling using long short-term memory ({LSTM})
+             networks},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {22},
+  number  = {11},
+  pages   = {6005--6022},
+  year    = {2018},
+  note    = {[v:lamichhane][v:kalauni] The paper that started it.}
+}
+
+@article{kratzert2019ealstm,
+  author  = {Kratzert, Frederik and Klotz, Daniel and Shalev, Guy and
+             Klambauer, G{\"u}nter and Hochreiter, Sepp and Nearing, Grey},
+  title   = {Towards learning universal, regional, and local hydrological
+             behaviors via machine learning applied to large-sample datasets},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {23},
+  number  = {12},
+  pages   = {5089--5110},
+  year    = {2019},
+  note    = {[v:shen][v:lamichhane] The EA-LSTM paper; the citation for
+             conditioning a regional model on static catchment attributes.}
+}
+
+@article{kratzert2019pub,
+  author  = {Kratzert, Frederik and Klotz, Daniel and Herrnegger, Mathew and
+             Sampson, Adrian K. and Hochreiter, Sepp and Nearing, Grey S.},
+  title   = {Toward improved predictions in ungauged basins: Exploiting the
+             power of machine learning},
+  journal = {Water Resources Research},
+  volume  = {55},
+  number  = {12},
+  pages   = {11344--11354},
+  year    = {2019},
+  note    = {[v:lamichhane]}
+}
+
+@article{kratzert2024never,
+  author  = {Kratzert, Frederik and Gauch, Martin and Klotz, Daniel and
+             Nearing, Grey},
+  title   = {{HESS} Opinions: Never train a long short-term memory ({LSTM})
+             network on a single basin},
+  journal = {Hydrology and Earth System Sciences Discussions},
+  year    = {2024},
+  note    = {[v:lamichhane][v:kalauni] Cited by both presenter papers as the
+             justification for regional rather than site-wise training. Both
+             cite the HESSD preprint; a final HESS version may now exist —
+             check before publishing.}
+}
+
+@article{gauch2021rainfall,
+  author  = {Gauch, Martin and Kratzert, Frederik and Klotz, Daniel and
+             Nearing, Grey and Lin, Jimmy and Hochreiter, Sepp},
+  title   = {Rainfall--runoff prediction at multiple timescales with a single
+             long short-term memory network},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {25},
+  number  = {4},
+  pages   = {2045--2062},
+  year    = {2021},
+  note    = {[v:kalauni] Kalauni's citation for multi-timescale training as a
+             response to vanishing gradients at high temporal resolution.}
+}
+
+@article{nearing2021role,
+  author  = {Nearing, Grey S. and Kratzert, Frederik and Sampson, Adrian K. and
+             Pelissier, Craig S. and Klotz, Daniel and Frame, Jonathan M. and
+             Prieto, Cristina and Gupta, Hoshin V.},
+  title   = {What role does hydrological science play in the age of machine
+             learning?},
+  journal = {Water Resources Research},
+  volume  = {57},
+  pages   = {e2020WR028091},
+  year    = {2021},
+  note    = {[v:shen] Shen cites as ``Nearing, G. S. et al.''; full author list
+             from the published article.}
+}
+
+@article{reichstein2019deep,
+  author  = {Reichstein, Markus and Camps-Valls, Gustau and Stevens, Bjorn and
+             Jung, Martin and Denzler, Joachim and Carvalhais, Nuno and
+             Prabhat},
+  title   = {Deep learning and process understanding for data-driven {Earth}
+             system science},
+  journal = {Nature},
+  volume  = {566},
+  number  = {7743},
+  pages   = {195--204},
+  year    = {2019},
+  doi     = {10.1038/s41586-019-0912-1},
+  note    = {[v:shen][v:kalauni]}
+}
+
+
+% ---------------------------------------------------------------------------
+% HYDROLOGIC MODELS, DATA AND CALIBRATION
+% ---------------------------------------------------------------------------
+
+@techreport{anderson2006snow17,
+  author      = {Anderson, Eric A.},
+  title       = {Snow Accumulation and Ablation Model -- {SNOW-17}. {NWSRFS}
+                 User Documentation},
+  institution = {U.S. National Weather Service},
+  year        = {2006},
+  note        = {[v:lamichhane] The version of SNOW-17 Lamichhane implements.}
+}
+
+@techreport{anderson1973national,
+  author      = {Anderson, Eric A.},
+  title       = {National Weather Service River Forecast System: Snow
+                 Accumulation and Ablation Model},
+  institution = {U.S. Department of Commerce, National Oceanic and Atmospheric
+                 Administration},
+  number      = {NWS HYDRO-17},
+  year        = {1973},
+  note        = {[v:lamichhane] The original SNOW-17 report.}
+}
+
+@techreport{anderson1976point,
+  author      = {Anderson, Eric A.},
+  title       = {A Point Energy and Mass Balance Model of a Snow Cover},
+  institution = {Stanford University},
+  year        = {1976},
+  note        = {[v:lamichhane] Source of the NMF and MBASE default values
+                 Lamichhane holds fixed.}
+}
+
+@article{he2011characterizing,
+  author  = {He, Minxue and Hogue, Terri S. and Franz, Kristie J. and
+             Margulis, Steven A. and Vrugt, Jasper A.},
+  title   = {Characterizing parameter sensitivity and uncertainty for a snow
+             model across hydroclimatic regimes},
+  journal = {Advances in Water Resources},
+  volume  = {34},
+  number  = {1},
+  pages   = {114--127},
+  year    = {2011},
+  note    = {[v:lamichhane] The SNOW-17 sensitivity study behind the choice of
+             which eight parameters to learn.}
+}
+
+@article{newman2015development,
+  author  = {Newman, Andrew J. and Clark, Martyn P. and Sampson, Kevin and
+             Wood, Andrew and Hay, Lauren E. and Bock, Andy and
+             Viger, Roland J. and Blodgett, David and Brekke, Levi and
+             Arnold, Jeffrey R. and Hopson, Thomas and Duan, Qingyun},
+  title   = {Development of a large-sample watershed-scale hydrometeorological
+             data set for the contiguous {USA}: data set characteristics and
+             assessment of regional variability in hydrologic model performance},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {19},
+  number  = {1},
+  pages   = {209--223},
+  year    = {2015},
+  doi     = {10.5194/hess-19-209-2015},
+  note    = {[v:publisher] Named in the source attribute of every minicamels
+             NetCDF file. The CAMELS timeseries.}
+}
+
+@article{addor2017camels,
+  author  = {Addor, Nans and Newman, Andrew J. and Mizukami, Naoki and
+             Clark, Martyn P.},
+  title   = {The {CAMELS} data set: catchment attributes and meteorology for
+             large-sample studies},
+  journal = {Hydrology and Earth System Sciences},
+  volume  = {21},
+  number  = {10},
+  pages   = {5293--5313},
+  year    = {2017},
+  doi     = {10.5194/hess-21-5293-2017},
+  note    = {[v:publisher] Named in the source attribute of every minicamels
+             NetCDF file. The CAMELS static attributes.}
+}
+
+@article{duan1992effective,
+  author  = {Duan, Qingyun and Sorooshian, Soroosh and Gupta, Vijai},
+  title   = {Effective and efficient global optimization for conceptual
+             rainfall-runoff models},
+  journal = {Water Resources Research},
+  volume  = {28},
+  number  = {4},
+  pages   = {1015--1031},
+  year    = {1992},
+  note    = {[v:shen] The original SCE-UA paper.}
+}
+
+@article{duan1993shuffled,
+  author  = {Duan, Qingyun Y. and Gupta, Vijai K. and Sorooshian, Soroosh},
+  title   = {Shuffled complex evolution approach for effective and efficient
+             global minimization},
+  journal = {Journal of Optimization Theory and Applications},
+  volume  = {76},
+  pages   = {501--521},
+  year    = {1993},
+  doi     = {10.1007/BF00939380},
+  note    = {[v:lamichhane] The SCE-UA variant Lamichhane uses as the
+             calibration baseline.}
+}
+
+@article{tolson2007dynamically,
+  author  = {Tolson, Bryan A. and Shoemaker, Christine A.},
+  title   = {Dynamically dimensioned search algorithm for computationally
+             efficient watershed model calibration},
+  journal = {Water Resources Research},
+  volume  = {43},
+  pages   = {W01413},
+  year    = {2007},
+  doi     = {10.1029/2005WR004723},
+  note    = {[v:publisher] Not in any of the four PDFs' reference lists;
+             verified against the AGU landing page. Included because DDS is the
+             other calibration algorithm this audience will name.}
+}
+
+@article{hansen2001completely,
+  author  = {Hansen, Nikolaus and Ostermeier, Andreas},
+  title   = {Completely derandomized self-adaptation in evolution strategies},
+  journal = {Evolutionary Computation},
+  volume  = {9},
+  number  = {2},
+  pages   = {159--195},
+  year    = {2001},
+  note    = {[v:kalauni] CMA-ES, the calibration algorithm in Kalauni.}
+}
+
+@article{beven2006manifesto,
+  author  = {Beven, Keith},
+  title   = {A manifesto for the equifinality thesis},
+  journal = {Journal of Hydrology},
+  volume  = {320},
+  pages   = {18--36},
+  year    = {2006},
+  note    = {[v:shen]}
+}
+
+@article{nash1970river,
+  author  = {Nash, J. E. and Sutcliffe, J. V.},
+  title   = {River flow forecasting through conceptual models part {I} --- A
+             discussion of principles},
+  journal = {Journal of Hydrology},
+  volume  = {10},
+  number  = {3},
+  pages   = {282--290},
+  year    = {1970},
+  note    = {[v:kalauni] NSE.}
+}
+
+@article{gupta2009decomposition,
+  author  = {Gupta, Hoshin V. and Kling, Harald and Yilmaz, Koray K. and
+             Martinez, Guillermo F.},
+  title   = {Decomposition of the mean squared error and {NSE} performance
+             criteria: Implications for improving hydrological modelling},
+  journal = {Journal of Hydrology},
+  volume  = {377},
+  number  = {1-2},
+  pages   = {80--91},
+  year    = {2009},
+  note    = {[v:kalauni] KGE.}
+}
+
+@article{knoben2019inherent,
+  author  = {Knoben, Wouter J. M. and Freer, Jim E. and Woods, Ross A.},
+  title   = {Inherent benchmark or not? Comparing {Nash--Sutcliffe} and
+             {Kling--Gupta} efficiency scores},
+  journal = {Hydrology and Earth System Sciences},
+  year    = {2019},
+  note    = {[v:kalauni] Source of the KGE skill score that rescales KGE so the
+             mean-flow benchmark sits at zero. Kalauni's copy does not give
+             volume/pages; omitted here rather than guessed.}
+}
+
+@article{knoben2019marrmot,
+  author  = {Knoben, Wouter J. M. and Freer, Jim E. and Fowler, Keirnan J. A. and
+             Peel, Murray C. and Woods, Ross A.},
+  title   = {Modular Assessment of Rainfall--Runoff Models Toolbox ({MARRMoT})
+             v1.2: an open-source, extendable framework providing
+             implementations of 46 conceptual hydrologic models as continuous
+             state-space formulations},
+  journal = {Geoscientific Model Development},
+  volume  = {12},
+  number  = {6},
+  pages   = {2463--2480},
+  year    = {2019},
+  doi     = {10.5194/gmd-12-2463-2019},
+  note    = {[v:kalauni] Kalauni's citation for smooth (differentiable)
+             reformulation of conceptual hydrologic models as ``common practice
+             for good numerics''. The best single reference for smoothing
+             thresholds.}
+}
+
+@article{clark2021numerical,
+  author  = {Clark, Martyn P. and Zolfaghari, Reza and Green, Kevin R. and
+             Trim, Sean and Knoben, Wouter J. M. and Bennett, Andrew and
+             Nijssen, Bart and Ireson, Andrew and Spiteri, Raymond J.},
+  title   = {The Numerical Implementation of Land Models: Problem Formulation
+             and Laugh Tests},
+  journal = {Journal of Hydrometeorology},
+  volume  = {22},
+  number  = {6},
+  pages   = {1627--1648},
+  year    = {2021},
+  doi     = {10.1175/JHM-D-20-0175.1},
+  note    = {[v:kalauni] Kalauni's reference list elides middle authors with an
+             ellipsis; names given here are those it lists explicitly plus the
+             ones on the published article. Why keeping the solver external to
+             the model equations matters.}
+}
+
+@article{kavetski2010ancient,
+  author  = {Kavetski, Dmitri and Clark, Martyn P.},
+  title   = {Ancient numerical daemons of conceptual hydrological modeling:
+             2. Impact of time stepping schemes on model analysis and prediction},
+  journal = {Water Resources Research},
+  volume  = {46},
+  number  = {10},
+  year    = {2010},
+  note    = {[v:kalauni] Why a sloppy solver produces a jagged objective surface
+             that frustrates calibration — and, now, gradient descent.}
+}
+
+@article{clark2010ancient,
+  author  = {Clark, Martyn P. and Kavetski, Dmitri},
+  title   = {Ancient numerical daemons of conceptual hydrological modeling:
+             1. Fidelity and efficiency of time stepping schemes},
+  journal = {Water Resources Research},
+  volume  = {46},
+  number  = {10},
+  year    = {2010},
+  doi     = {10.1029/2009WR008894},
+  note    = {[v:kalauni]}
+}
+
+@article{schoups2010corruption,
+  author  = {Schoups, Gerrit and Vrugt, Jasper A. and Fenicia, Fabrizio and
+             van de Giesen, Nick C.},
+  title   = {Corruption of accuracy and efficiency of {Markov} chain {Monte
+             Carlo} simulation by inaccurate numerical implementation of
+             conceptual hydrologic models},
+  journal = {Water Resources Research},
+  volume  = {46},
+  number  = {10},
+  year    = {2010},
+  note    = {[v:kalauni] The MCMC analogue of the gradient-corruption argument.}
+}
+
+@article{celia1990general,
+  author  = {Celia, Michael A. and Bouloutas, Efthimios T. and Zarba, Rebecca L.},
+  title   = {A general mass-conservative numerical solution for the unsaturated
+             flow equation},
+  journal = {Water Resources Research},
+  volume  = {26},
+  number  = {7},
+  pages   = {1483--1496},
+  year    = {1990},
+  doi     = {10.1029/WR026i007p01483},
+  note    = {[v:publisher] The modified-Picard Richards solver used in the
+             presenter's 3_richards notebook. Not in the four PDFs' reference
+             lists; verified against the AGU landing page.}
+}
+
+@article{milly2002global,
+  author  = {Milly, P. C. D. and Shmakin, A. B.},
+  title   = {Global Modeling of Land Water and Energy Balances. Part {I}: The
+             Land Dynamics ({LaD}) Model},
+  journal = {Journal of Hydrometeorology},
+  volume  = {3},
+  number  = {3},
+  pages   = {283--299},
+  year    = {2002},
+  note    = {[v:kalauni] The process model Kalauni makes differentiable.}
+}
+
+@article{pastorello2020fluxnet2015,
+  author  = {Pastorello, Gilberto and Trotta, Carlo and Canfora, Eleonora and
+             Chu, Housen and Christianson, Danielle and Cheah, You-Wei and
+             Papale, Dario},
+  title   = {The {FLUXNET2015} dataset and the {ONEFlux} processing pipeline
+             for eddy covariance data},
+  journal = {Scientific Data},
+  volume  = {7},
+  number  = {1},
+  pages   = {225},
+  year    = {2020},
+  doi     = {10.1038/s41597-020-0534-3},
+  note    = {[v:kalauni] Kalauni's reference list elides the middle of a very
+             long author list with an ellipsis; only the names it lists
+             explicitly are reproduced here.}
+}
+
+@article{best2015plumbing,
+  author  = {Best, Martin J. and Abramowitz, Gab and Johnson, Hume R. and
+             Pitman, Andy J. and Balsamo, Gianpaolo and Boone, Aaron},
+  title   = {The plumbing of land surface models: benchmarking model
+             performance},
+  journal = {Journal of Hydrometeorology},
+  volume  = {16},
+  number  = {3},
+  pages   = {1425--1442},
+  year    = {2015},
+  note    = {[v:kalauni] The PLUMBER result: a three-input piecewise linear
+             regression beats leading land surface models. Kalauni's reference
+             list elides middle authors with an ellipsis; only explicitly
+             listed names are reproduced here.}
+}
+
+@article{abramowitz2024plumber2,
+  author  = {Abramowitz, Gab and Ukkola, Anna and Hobeichi, Sanaa and
+             Cranko Page, Jon and Lipson, Mathew and De Kauwe, Martin G.},
+  title   = {On the predictability of turbulent fluxes from land: {PLUMBER2}
+             {MIP} experimental description and preliminary results},
+  journal = {Biogeosciences},
+  volume  = {21},
+  number  = {23},
+  pages   = {5517--5538},
+  year    = {2024},
+  doi     = {10.5194/bg-21-5517-2024},
+  note    = {[v:kalauni] PLUMBER2: 22 land surface models, 170 sites, and LSTMs
+             beating all of them. Author list truncated by an ellipsis in
+             Kalauni's reference list; only explicit names reproduced.}
+}
+
+@article{champion2019data,
+  author  = {Champion, Kathleen and Lusch, Bethany and Kutz, J. Nathan and
+             Brunton, Steven L.},
+  title   = {Data-driven discovery of coordinates and governing equations},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume  = {116},
+  number  = {45},
+  pages   = {22445--22451},
+  year    = {2019},
+  note    = {[v:kalauni] Learned latent state spaces — the frontier Kalauni
+             points to when questioning the inherited state vector.}
+}
+
+@article{brenowitz2020interpreting,
+  author  = {Brenowitz, Noah D. and Beucler, Tom and Pritchard, Michael S. and
+             Bretherton, Christopher S.},
+  title   = {Interpreting and stabilizing machine-learning parametrizations of
+             convection},
+  journal = {Journal of the Atmospheric Sciences},
+  year    = {2020},
+  note    = {[v:kalauni] Offline-stable, online-unstable parameterizations.
+             Kalauni's copy gives no volume/pages; omitted rather than guessed.}
+}
+
+
+% ---------------------------------------------------------------------------
+% SOFTWARE
+% ---------------------------------------------------------------------------
+
+@article{kratzert2022neuralhydrology,
+  author  = {Kratzert, Frederik and Gauch, Martin and Nearing, Grey and
+             Klotz, Daniel},
+  title   = {{NeuralHydrology} --- A {Python} library for Deep Learning research
+             in hydrology},
+  journal = {Journal of Open Source Software},
+  volume  = {7},
+  number  = {71},
+  pages   = {4050},
+  year    = {2022},
+  doi     = {10.21105/joss.04050},
+  note    = {[v:publisher]}
+}
+
+@misc{bradbury2018jax,
+  author = {Bradbury, James and Frostig, Roy and Hawkins, Peter and
+            Johnson, Matthew James and Leary, Chris and Maclaurin, Dougal and
+            Necula, George and Paszke, Adam and Vander{P}las, Jake and
+            Wanderman-Milne, Skye and Zhang, Qiao},
+  title  = {{JAX}: composable transformations of {Python}+{NumPy} programs},
+  year   = {2018},
+  url    = {http://github.com/jax-ml/jax},
+  note   = {[v:kalauni] Kalauni's reference list elides part of the author list
+            with an ellipsis; the names here are the standard JAX citation.}
+}
+
+@misc{kidger2021equinox,
+  author = {Kidger, Patrick and Garcia, Cristian},
+  title  = {{Equinox}: neural networks in {JAX} via callable {PyTrees} and
+            filtered transformations},
+  year   = {2021},
+  eprint = {2111.00254},
+  archivePrefix = {arXiv},
+  doi    = {10.48550/arXiv.2111.00254},
+  note   = {[v:kalauni]}
+}
+
+@article{lu2021deepxde,
+  author  = {Lu, Lu and Meng, Xuhui and Mao, Zhiping and Karniadakis, George Em},
+  title   = {{DeepXDE}: A deep learning library for solving differential
+             equations},
+  journal = {SIAM Review},
+  volume  = {63},
+  number  = {1},
+  pages   = {208--228},
+  year    = {2021},
+  note    = {[v:shen] The reference PINN library.}
+}
+
+@misc{minicamels,
+  author = {Bennett, Andrew},
+  title  = {{minicamels}: a pared-down {CAMELS-US} hydrological dataset for
+            teaching},
+  url    = {https://github.com/BennettHydroLab/minicamels},
+  note   = {The workshop dataset. 50 CAMELS-US basins, 1980-10-01 to
+            2010-09-30 (WY1981--WY2010), daily. Derived from
+            \cite{newman2015development} and \cite{addor2017camels}. Version
+            installed and tested for this workshop: 0.1.dev7. No formal release
+            or DOI at time of writing — do not invent a year or version.}
+}

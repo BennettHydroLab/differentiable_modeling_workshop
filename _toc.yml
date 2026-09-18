@@ -1,0 +1,29 @@
+# Table of contents — a 2-hour workshop, front to back.
+format: jb-book
+root: intro
+
+parts:
+  - caption: Start here
+    chapters:
+      - file: notebooks/00_setup_and_motivation
+
+  - caption: "Theory — how a model becomes differentiable (35 min)"
+    chapters:
+      - file: notebooks/theory/01_gradients_and_autodiff
+      - file: notebooks/theory/02_neural_odes_and_udes
+
+  - caption: "Applications — hybrid models on real basins (50 min)"
+    chapters:
+      - file: notebooks/applications/03_hybrid_bucket_model
+      - file: notebooks/applications/04_dynamic_parameterization
+      - file: notebooks/applications/05_hybrid_as_diagnostic
+
+  - caption: "Frontiers — where this is going (25 min)"
+    chapters:
+      - file: notebooks/advanced/06_practical_guide
+      - file: notebooks/advanced/07_open_questions
+
+  - caption: Reference
+    chapters:
+      - file: resources/reading_list
+      - file: resources/research_brief

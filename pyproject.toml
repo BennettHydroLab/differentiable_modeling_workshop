@@ -1,0 +1,36 @@
+[project]
+name = "differentiable-modeling-workshop"
+version = "0.1.0"
+description = "A 2-hour workshop on differentiable and hybrid modeling for hydrologic systems"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.4.0",
+    "torchdiffeq>=0.2.4",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "xarray>=2024.1.0",
+    "netcdf4>=1.6",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "tqdm>=4.66",
+    "ipykernel>=6.29",
+    "ipywidgets>=8.1",
+    "jupyterlab>=4.0",
+    "jupyter-book>=0.15,<1.0",
+    "minicamels",
+    "requests>=2.34.2",
+    "aiohttp>=3.14.3",
+]
+
+[tool.uv.sources]
+minicamels = { git = "https://github.com/BennettHydroLab/minicamels.git" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["workshop_utils"]
