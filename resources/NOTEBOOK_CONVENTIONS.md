@@ -147,14 +147,76 @@ Ways to stay inside it:
   as illustrative that is not executed at runtime.
 - Always print training progress so the room sees something happening.
 
+## Voice — settled, do not drift
+
+Use **chapter 12's register**, with the course notebooks' structural
+discipline. Concretely:
+
+- Second person. "You might be thinking", "if you're ambitious", "notice that
+  your model now has...". Not the course notebooks' impersonal "we".
+- "Let's" is fine and in character.
+- Grant permission to skip. Chapter 12 says things like *"most of the time it
+  works"* and *"let's call this good enough and move on"*. Do that — this
+  audience does not need every derivation.
+- **Validate against a known answer before using a tool in anger.** This is the
+  presenter's most distinctive habit and it is exactly right for an audience
+  being asked to trust gradients through their own model. Check RK4 against an
+  analytic solution; check an autograd gradient against a finite difference.
+- Sustained analogies are welcome (optimization as topography).
+
+From the course notebooks, keep: the `## Motivation` / `## What we'll cover`
+opening, summary tables instead of bulleted recaps, explicit cross-references
+to sibling notebooks by filename, and — most important — **stating your own
+simplifications and runtime budget in prose**. Say out loud what you cut and why.
+
+**American spelling** throughout (normalize, visualize, behavior). The source
+corpus mixes both; we do not.
+
 ## Code style
 
-- Follow the presenter's existing voice (see `refs/chapter_12_...ipynb`):
-  clear, comments that explain *why*, small composable `nn.Module` classes.
-- Comment density: match the chapter. Explain the non-obvious, skip the obvious.
+- Comments explain *why*, not *what*. Match chapter 12's density.
+- Small composable `nn.Module` classes over monolithic functions.
 - Never leave a magic number unexplained.
 - Prefer showing a plot over printing a number.
-- `torch.manual_seed(0)` at the top so results are reproducible in the room.
+- `torch.manual_seed(0)` at the top so results reproduce in the room.
+
+## Use the shared package — do not reimplement these
+
+`workshop_utils` is built, tested, and importable. Three agents reinventing
+`nse` is exactly how this set of notebooks stops being one document.
+
+```python
+from workshop_utils import (
+    # metrics — work on numpy OR torch, differentiable, NaN-safe
+    nse, kge, log_nse, pbias, rmse, summary,
+    # data
+    load_basin, split_by_water_year, to_tensors, potential_et,
+    BASIN_TEMPERATE, BASIN_SNOWY, BASIN_ARID,
+    # differentiable ops — see nn.py docstrings, they explain the pitfalls
+    smooth_threshold, smooth_min, smooth_max, soft_clamp, smooth_relu,
+    # network pieces
+    MLP, ParamMap,
+    # fixed-step integration
+    rk4_step, odeint_fixed,
+    # plotting
+    hydrograph, set_style, COLORS,
+)
+```
+
+Notes on the ones with sharp edges:
+
+- `load_basin(id)` returns an xarray Dataset that **already includes** `tmean`
+  and `pet`. PET is Hamon, rescaled per basin to match the CAMELS `mean_pet`
+  attribute (raw Hamon underestimates it by 1.2-2.2x). Do not roll your own.
+- `ParamMap(lo, hi)` is the sigmoid range-map — the same trick Lamichhane uses
+  to keep an LSTM's output inside published SNOW-17 ranges. It has an
+  `.inverse()` for warm-starting from a calibrated parameter set.
+- The `smooth_*` functions are the fix for the single most common reason a
+  hybrid model will not train. `smooth_min` keeps a gradient of 0.88 on a
+  branch where `torch.minimum` gives exactly 0.0.
+
+If you need something shared that is missing, **add it to `workshop_utils` and
+tell the orchestrator**, rather than defining it locally in a notebook.
 
 ## Figures
 

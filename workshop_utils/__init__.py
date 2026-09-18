@@ -7,12 +7,24 @@ we do not want to retype in every notebook.
 
 from workshop_utils.metrics import kge, log_nse, nse, pbias, rmse, summary
 from workshop_utils.data import (
+    potential_et,
     BASIN_SNOWY,
     BASIN_ARID,
     BASIN_TEMPERATE,
     load_basin,
     split_by_water_year,
     to_tensors,
+)
+from workshop_utils.nn import (
+    MLP,
+    ParamMap,
+    odeint_fixed,
+    rk4_step,
+    smooth_max,
+    smooth_min,
+    smooth_relu,
+    smooth_threshold,
+    soft_clamp,
 )
 from workshop_utils.plotting import (
     hydrograph,
@@ -22,9 +34,11 @@ from workshop_utils.plotting import (
 
 __all__ = [
     "nse", "kge", "log_nse", "pbias", "rmse", "summary",
-    "load_basin", "split_by_water_year", "to_tensors",
+    "load_basin", "split_by_water_year", "to_tensors", "potential_et",
     "BASIN_SNOWY", "BASIN_ARID", "BASIN_TEMPERATE",
     "hydrograph", "set_style", "COLORS",
+    "MLP", "ParamMap", "rk4_step", "odeint_fixed",
+    "smooth_threshold", "smooth_min", "smooth_max", "soft_clamp", "smooth_relu",
 ]
 
 __version__ = "0.1.0"
