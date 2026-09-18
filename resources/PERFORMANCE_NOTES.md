@@ -77,3 +77,46 @@ training, the HBV-lite structure above reaches **NSE ~0.58**. That is a
 reasonable, honest baseline for a 6-parameter conceptual model — do not tune
 it into something implausible to make a hybrid model look better. The hybrid
 comparison is more convincing when the physics baseline is fairly calibrated.
+
+---
+
+## Verified reference results (notebook 00)
+
+Measured end to end with the final `workshop_utils` API, HBV-lite on
+`BASIN_TEMPERATE` (Cowpasture River VA), 2 water years of training plus 1 year
+of spin-up (1095 days), tested on WY2000-2002.
+
+| Method | Cost | Train NSE |
+|---|---|---|
+| Random search, 500 parameter sets, `no_grad` | **0.13 s** | 0.643 |
+| Adam, 40 gradient steps | **34.2 s** (0.86 s/step) | 0.635 |
+
+Held-out test metrics for the gradient-calibrated parameters:
+`NSE 0.526, KGE 0.654, logNSE 0.283, PBIAS 7.5%, RMSE 0.717`.
+
+Calibrated parameters (sensible values, which is the point of `ParamMap`):
+`FC 198.6, beta 4.56, LP 0.90, K_fast 0.322, K_slow 0.028, PERC 1.455`.
+
+**Random search beat gradient descent here, and was 260x faster.** Say this
+out loud in the notebooks. At six parameters the gradient is not worth its
+price, and an audience that calibrates for a living already knows it.
+
+### Batching across basins is free — the measurement
+
+Training 16 basins simultaneously, each with its own parameter vector, 40
+Adam steps:
+
+| Setup | Time per step |
+|---|---|
+| 1 basin  | 0.86 s |
+| 16 basins | **0.75 s** |
+
+**16x the work for 0.88x the time.** (It comes out slightly *faster* than the
+single-basin run because the per-step Python and autograd overhead is paid
+once either way, and this box is noisy.) Median NSE across the 16 basins was
+0.611.
+
+This is the regionalization argument from `research_brief.md` §4 made
+concrete, and it is the number to put in front of the room: the reason
+differentiable modeling scales to continental domains is not that gradients
+are fast, it is that the expensive part does not grow when you add basins.
