@@ -14,7 +14,6 @@ exclude_patterns:
   - refs
   - tools
   - "**.ipynb_checkpoints"
-  - README.md
 
 execute:
   execute_notebooks: cache

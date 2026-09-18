@@ -1,6 +1,6 @@
 # Table of contents — a 2-hour workshop, front to back.
 format: jb-book
-root: intro
+root: README
 
 parts:
   - caption: Start here
