@@ -7,7 +7,9 @@ we do not want to retype in every notebook.
 
 from workshop_utils.metrics import kge, log_nse, nse, pbias, rmse, summary
 from workshop_utils.data import (
+    attributes,
     potential_et,
+    standardizer,
     BASIN_SNOWY,
     BASIN_ARID,
     BASIN_TEMPERATE,
@@ -35,6 +37,7 @@ from workshop_utils.plotting import (
 __all__ = [
     "nse", "kge", "log_nse", "pbias", "rmse", "summary",
     "load_basin", "split_by_water_year", "to_tensors", "potential_et",
+    "attributes", "standardizer",
     "BASIN_SNOWY", "BASIN_ARID", "BASIN_TEMPERATE",
     "hydrograph", "set_style", "COLORS",
     "MLP", "ParamMap", "rk4_step", "odeint_fixed",
