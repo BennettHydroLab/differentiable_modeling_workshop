@@ -27,3 +27,4 @@ parts:
     chapters:
       - file: resources/reading_list
       - file: resources/research_brief
+      - file: resources/facilitator_guide
