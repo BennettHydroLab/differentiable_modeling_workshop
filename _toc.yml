@@ -25,6 +25,4 @@ parts:
 
   - caption: Reference
     chapters:
-      - file: resources/reading_list
-      - file: resources/research_brief
-      - file: resources/facilitator_guide
+      - file: bibliography
