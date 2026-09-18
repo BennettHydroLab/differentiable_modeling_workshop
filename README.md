@@ -1,5 +1,7 @@
 # Differentiable & Hybrid Modeling for Hydrologic Systems
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/BennettHydroLab/differentiable_modeling_workshop/blob/main/notebooks/00_setup_and_motivation.ipynb)
+
 A hands-on, 2-hour workshop for hydrologic modelers who want to combine
 process-based models with machine learning — and keep the physics.
 
