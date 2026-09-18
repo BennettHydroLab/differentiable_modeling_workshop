@@ -83,6 +83,27 @@ That is the most practically useful question anyone will ask. Notebook 01 and
 tradeoff. This is usually what stands between a hybrid model that trains and
 one that does not.
 
+## Measured runtimes
+
+Every notebook was executed end to end during the book build, on a heavily
+contended shared machine (load average ~270). A participant's laptop should be
+at least this fast. These are the *whole notebook*, top to bottom:
+
+| Notebook | Runtime |
+|---|---|
+| `00_setup_and_motivation` | 81 s |
+| `theory/01_gradients_and_autodiff` | **15 s** |
+| `theory/02_neural_odes_and_udes` | 82 s |
+| `applications/03_hybrid_bucket_model` | 88 s |
+| `applications/04_dynamic_parameterization` | 154 s |
+| `applications/05_hybrid_as_diagnostic` | 176 s |
+| `advanced/06_practical_guide` | 113 s |
+| `advanced/07_open_questions` | 63 s |
+
+Total compute is about 13 minutes across the whole workshop, which fits inside
+two hours with room for talking. The two longest are `04` and `05`; if you are
+behind, those are where the time is.
+
 ## Live failure modes
 
 - **A training cell is slower than advertised.** Every notebook is budgeted
