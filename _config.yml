@@ -5,6 +5,17 @@ logo: ""
 
 only_build_toc_files: true
 
+# Without this, Sphinx walks the whole tree: it picks up READMEs from .venv
+# site-packages and, worse, tries to execute the reference notebooks in refs/
+# (one of which takes 20-60 minutes). Keep this list tight.
+exclude_patterns:
+  - .venv
+  - _build
+  - refs
+  - tools
+  - "**.ipynb_checkpoints"
+  - README.md
+
 execute:
   execute_notebooks: cache
   timeout: 900

@@ -44,13 +44,48 @@ def smooth_threshold(x, center=0.0, sharpness: float = 5.0):
 def smooth_min(a, b, beta: float = 1.0):
     """Differentiable ``min(a, b)`` via the log-sum-exp softmin.
 
-    Use for capped fluxes — percolation limited by available storage, melt
-    limited by snowpack. ``beta`` sets the softness in the *units of a and b*:
-    the approximation error is about ``log(2)/beta``, so for fluxes in mm/day
-    a ``beta`` of 5-20 keeps the error well under a tenth of a mm while
-    keeping gradients alive on both branches.
+    ``beta`` sets the softness in the *units of a and b*. Larger is closer to
+    a true minimum; for fluxes in mm/day, 5-20 is a reasonable range.
+
+    .. warning::
+
+       **This is biased low, and the bias does not vanish where it matters.**
+       When ``a == b`` the result is ``a - log(2)/beta`` exactly — so
+       ``smooth_min(0, 0, beta=5)`` returns ``-0.139``, not zero.
+
+       That makes it the **wrong tool for capping a flux at an available
+       store**: on a day with no snow, a melt capped this way comes out
+       negative, and your snowpack starts growing out of nothing. Use
+       :func:`smooth_cap` for "this flux cannot exceed what is there."
+
+       ``smooth_min`` is still the right choice for comparing two quantities
+       that are both comfortably away from a physical floor.
     """
     return -torch.logaddexp(-beta * torch.as_tensor(a), -beta * torch.as_tensor(b)) / beta
+
+
+def smooth_cap(flux, available, eps: float = 1e-6):
+    """Limit ``flux`` to what is actually ``available``, differentiably.
+
+    The hydrologic workhorse: melt cannot exceed the snowpack, percolation
+    cannot exceed the store, ET cannot exceed the soil water. Written as an
+    exponential saturation::
+
+        actual = available * (1 - exp(-flux / available))
+
+    which has three properties :func:`smooth_min` does not. It is exactly
+    zero when ``available`` is zero, so an empty store stays empty. It never
+    exceeds ``available``, so mass balance holds structurally rather than by
+    luck. And it approaches ``flux`` when demand is small relative to supply,
+    so it does not quietly throttle ordinary days.
+
+    Gradients flow to both arguments everywhere, which is the whole point —
+    a hard ``min`` sends nothing to the inactive branch.
+    """
+    available = torch.as_tensor(available)
+    flux = torch.as_tensor(flux)
+    safe = available + eps
+    return available * (1.0 - torch.exp(-flux / safe))
 
 
 def smooth_max(a, b, beta: float = 1.0):

@@ -22,6 +22,7 @@ from workshop_utils.nn import (
     ParamMap,
     odeint_fixed,
     rk4_step,
+    smooth_cap,
     smooth_max,
     smooth_min,
     smooth_relu,
@@ -42,6 +43,7 @@ __all__ = [
     "hydrograph", "set_style", "COLORS",
     "MLP", "ParamMap", "rk4_step", "odeint_fixed",
     "smooth_threshold", "smooth_min", "smooth_max", "soft_clamp", "smooth_relu",
+    "smooth_cap",
 ]
 
 __version__ = "0.1.0"
