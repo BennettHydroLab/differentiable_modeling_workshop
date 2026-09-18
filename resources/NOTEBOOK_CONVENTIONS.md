@@ -212,8 +212,14 @@ Notes on the ones with sharp edges:
   to keep an LSTM's output inside published SNOW-17 ranges. It has an
   `.inverse()` for warm-starting from a calibrated parameter set.
 - The `smooth_*` functions are the fix for the single most common reason a
-  hybrid model will not train. `smooth_min` keeps a gradient of 0.88 on a
-  branch where `torch.minimum` gives exactly 0.0.
+  hybrid model will not train. Stated precisely, because it is easy to get
+  wrong: for `min(3, 5)`, `torch.minimum` sends gradient `1.0` to the active
+  branch and **exactly `0.0`** to the inactive one, so the inactive branch
+  learns nothing; `smooth_min(beta=1)` splits it `0.881 / 0.119`, so both
+  branches stay alive. For a hard threshold the situation is worse still —
+  `(t < t_snow)` produces no graph at all (`grad_fn` is `None`), while
+  `smooth_threshold` gives a real derivative with respect to the threshold
+  itself, which is what lets you *learn* a rain-snow temperature.
 
 If you need something shared that is missing, **add it to `workshop_utils` and
 tell the orchestrator**, rather than defining it locally in a notebook.
