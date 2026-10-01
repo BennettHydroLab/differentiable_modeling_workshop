@@ -40,7 +40,6 @@ sphinx:
 
 repository:
   url: https://github.com/BennettHydroLab/differentiable_modeling_workshop
-  path_to_book: .
   branch: main
 
 launch_buttons:

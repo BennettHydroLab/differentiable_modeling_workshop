@@ -20,13 +20,10 @@ dependencies = [
     "ipywidgets>=8.1",
     "jupyterlab>=4.0",
     "jupyter-book>=0.15,<1.0",
-    "minicamels",
+    "minicamels @ git+https://github.com/BennettHydroLab/minicamels.git",
     "requests>=2.34.2",
     "aiohttp>=3.14.3",
 ]
-
-[tool.uv.sources]
-minicamels = { git = "https://github.com/BennettHydroLab/minicamels.git" }
 
 [build-system]
 requires = ["hatchling"]
