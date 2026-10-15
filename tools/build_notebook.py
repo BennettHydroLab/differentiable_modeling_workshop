@@ -4,7 +4,7 @@ Hand-writing .ipynb JSON is error-prone; this turns a readable source file
 into a valid notebook. Split cells with a line containing only ``#%% md`` or
 ``#%% code``.
 
-    uv run python tools/build_notebook.py src.txt notebooks/theory/01_foo.ipynb
+    python tools/build_notebook.py src.txt notebooks/theory/01_foo.ipynb
 
 Add ``#%% code tags=remove-output`` to attach MyST cell tags.
 """

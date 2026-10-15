@@ -173,7 +173,7 @@ def rk4_step(f, u, t, dt):
     Every operation is a differentiable torch op, so autograd walks straight
     back through the solver. This is "discretize-then-optimize": we
     differentiate the code that took the steps. See
-    ``research_brief.md`` §6 for how that differs from the adjoint.
+    ``research_brief.md`` section 6 for how that differs from the adjoint.
     """
     k1 = f(t, u)
     k2 = f(t + dt / 2, u + dt / 2 * k1)

@@ -24,12 +24,30 @@ cell; it installs what it needs.
 
 ### Locally
 
+Install Python 3.11 or newer (Python 3.12 recommended) and Git, then create
+and activate a virtual environment:
+
 ```bash
 git clone https://github.com/BennettHydroLab/differentiable_modeling_workshop.git
 cd differentiable_modeling_workshop
-uv sync            # or: pip install -e .
-uv run jupyter lab
+python3.12 -m venv .venv
+source .venv/bin/activate
 ```
+
+On Windows, use `py -3.12 -m venv .venv` and activate it with
+`.venv\Scripts\Activate.ps1` in PowerShell. If you use another supported
+Python version, substitute its command above.
+
+Install the workshop and launch JupyterLab from the activated environment:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .
+python -m jupyterlab
+```
+
+Open `notebooks/00_setup_and_motivation.ipynb` and run the setup cells to
+verify the installation. Reactivate the environment before future sessions.
 
 ## The schedule
 
@@ -43,8 +61,10 @@ uv run jupyter lab
 ## Build the book
 
 ```bash
-uv run jupyter-book build .
+jupyter-book build .
 ```
+
+Run this from the repository root with the virtual environment activated.
 
 ## License
 
